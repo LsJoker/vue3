@@ -8282,6 +8282,11 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-router@4.0.0-alpha.6:
+  version "4.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.0-alpha.6.tgz#09137032eae43c28190d31210e40e6c4006b030f"
+  integrity sha512-0wDX4KX3NEeHTRU67e3hyR9YHRLZ6jQZrEoCGTL5XdwSRgR57s77KvL5xvKhwVO5pgFb4PCSGoLAT8dhsUmnEQ==
+
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npm.taobao.org/vue-style-loader/download/vue-style-loader-4.1.2.tgz?cache=0&sync_timestamp=1586263943341&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-style-loader%2Fdownload%2Fvue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -8303,6 +8308,11 @@ vue@^3.0.0:
     "@vue/compiler-dom" "3.0.2"
     "@vue/runtime-dom" "3.0.2"
     "@vue/shared" "3.0.2"
+
+vuex@4.0.0-alpha.1:
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-4.0.0-alpha.1.tgz#3e548b6d98f6b3da35eb554fdb3251760d52c302"
+  integrity sha512-J08Mtcjx2JOyTL+XnXQqqBDyyHpTRFSJvnjkB7FPj0FWFZSpT0atkv3Wp75UxkPAgw3+SCR2tLdr1mm0cBhGjA==
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
