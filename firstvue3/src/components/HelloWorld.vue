@@ -1,48 +1,88 @@
 <template>
   <div class="hello">
-    <!-- <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>-->
-    <!-- <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>-->
+  <a-layout id="components-layout-demo-side" style="min-height: 100vh">
+    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+      <div class="logo" />
+      <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
+        <a-menu-item key="1">
+          <pie-chart-outlined />
+          <span>Option 1</span>
+        </a-menu-item>
+        <!-- <a-menu-item key="2">
+          <desktop-outlined />
+          <span>Option 2</span>
+        </a-menu-item>
+        <a-sub-menu key="sub1">
+          <template #title>
+            <span><user-outlined /><span>User</span></span>
+          </template>
+          <a-menu-item key="3">Tom</a-menu-item>
+          <a-menu-item key="4">Bill</a-menu-item>
+          <a-menu-item key="5">Alex</a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="sub2">
+          <template #title>
+            <span><team-outlined /><span>Team</span></span>
+          </template>
+          <a-menu-item key="6">Team 1</a-menu-item>
+          <a-menu-item key="8">Team 2</a-menu-item>
+        </a-sub-menu>
+        <a-menu-item key="9">
+          <file-outlined />
+          <span>File</span>
+        </a-menu-item> -->
+      </a-menu>
+    </a-layout-sider>
+    <a-layout>
+      <!-- <a-layout-header style="background: #fff; padding: 0" /> -->
+      <a-layout-content style="margin: 0 16px">
+        <a-breadcrumb style="margin: 16px 0">
+          <a-breadcrumb-item>User</a-breadcrumb-item>
+          <a-breadcrumb-item>Bill</a-breadcrumb-item>
+        </a-breadcrumb>
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
+          Bill is a cat.
+        </div>
+      </a-layout-content>
+      <a-layout-footer style="text-align: center">
+        Ant Design ©2018 Created by Ant UED
+      </a-layout-footer>
+    </a-layout>
+  </a-layout>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive,toRefs } from 'vue';
+import {PieChartOutlined,
+  // DesktopOutlined,
+  // UserOutlined,
+  // TeamOutlined,
+  // FileOutlined,
+  } from '@ant-design/icons-vue';
 export default {
     name: 'HelloWorld',
-    props: {
-        msg: String,
-    },
-    setUp() {
+    // props: {
+    //     msg: String,
+    // },
+    components: {
+    PieChartOutlined,
+    // DesktopOutlined,
+    // UserOutlined,
+    // TeamOutlined,
+    // FileOutlined,
+  },
+    setup() {
         //3.0生命周期
         //
         const state = reactive({
             num: 1,
+            collapsed:false,
+            selectedKeys: ['1'],
         });
+        return {
+          ...toRefs(state)
+        }
     },
 };
 </script>
