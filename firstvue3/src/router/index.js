@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import HelloWorld from '../components/HelloWorld.vue';
+import HelloWorld from '../views/HelloWorld.vue';
 
 const routes = [
 	{

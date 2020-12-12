@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-  
+  2233
   </div>
 </template>
 
@@ -29,7 +29,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+  /* @import url('common/css/reset.css');  */
 h3 {
     margin: 40px 0 0;
 }
