@@ -1,29 +1,26 @@
 <template>
-  <div class="hello">
-  
-  </div>
+  <div class="hello"></div>
 </template>
 
 <script>
-import { reactive,toRefs } from 'vue';
+import { reactive, toRefs } from 'vue';
 export default {
     name: 'HelloWorld',
     // props: {
     //     msg: String,
     // },
-    components: {
-  },
+    components: {},
     setup() {
         //3.0生命周期
         //
         const state = reactive({
             num: 1,
-            collapsed:false,
+            collapsed: false,
             selectedKeys: ['1'],
         });
         return {
-          ...toRefs(state)
-        }
+            ...toRefs(state),
+        };
     },
 };
 </script>

@@ -1,48 +1,59 @@
 <template>
   <div class="hello">
-  2233
+    <ol>
+      <li>ref,普通响应式，对单纯的值，ref定义的变量，改变值要.value</li>
+      <pre> 
+        import {ref} from 'vue';
+        const msg3 = ref('你好不好')
+      </pre>
+
+      <li>reactive,对于对象的响应式</li>
+      <code>
+        import { reactive, toRefs } from 'vue';
+        const state = reactive({
+        num: 1,
+        collapsed: false,
+        selectedKeys: ['1'],
+        });
+      </code>
+
+      <li>toRefs,解构返回普通</li>
+      <code>
+        import { reactive, toRefs } from 'vue';
+        const state = reactive({
+        num: 1,
+        collapsed: false,
+        selectedKeys: ['1'],
+        });
+      </code>
+    </ol>
   </div>
 </template>
 
 <script>
-import { reactive,toRefs } from 'vue';
+import { reactive, toRefs } from 'vue';
 export default {
     name: 'HelloWorld',
     // props: {
     //     msg: String,
     // },
-    components: {
-  },
+    components: {},
     setup() {
         //3.0生命周期
         //
         const state = reactive({
             num: 1,
-            collapsed:false,
+            collapsed: false,
             selectedKeys: ['1'],
         });
         return {
-          ...toRefs(state)
-        }
+            ...toRefs(state),
+        };
     },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  /* @import url('common/css/reset.css');  */
-h3 {
-    margin: 40px 0 0;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-a {
-    color: #42b983;
-}
+/* @import url('common/css/reset.css');  */
 </style>
