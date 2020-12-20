@@ -27,7 +27,7 @@ import {
     // MenuFoldOutlined,
     // MenuUnfoldOutlined,
     PieChartOutlined,
-    // MailOutlined,
+    MailOutlined,
     // DesktopOutlined,
     // InboxOutlined,
     // AppstoreOutlined,
@@ -37,7 +37,7 @@ export default {
     props: {
         listItem: { type: Array, default: () => [] },
     },
-    components: { PieChartOutlined },
+    components: { PieChartOutlined,MailOutlined },
     setup() {
         //3.0生命周期
         //

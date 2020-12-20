@@ -29,35 +29,11 @@
 import { reactive, toRefs } from 'vue';
 import menuComItem from './menuItem.vue';
 // import { useRoute, useRouter } from 'vue-router';
-import // MenuFoldOutlined
-// MenuUnfoldOutlined,
-// PieChartOutlined,
-
-// MailOutlined,
-// DesktopOutlined,
-// InboxOutlined,
-// AppstoreOutlined,
-'@ant-design/icons-vue';
+import {PieChartOutlined} from '@ant-design/icons-vue';
 export default {
     name: 'menuCom',
     props: {
-        // list: { type: Array, default: () => [] },
-    },
-    //  PieChartOutlined,
-    components: { menuComItem },
-    setup() {
-        //3.0生命周期
-        //
-        // const route = useRoute();
-        // const router = useRouter();
-        // console.log(route);
-        // console.log(router);
-        const state = reactive({
-            num: 1,
-            collapsed: false,
-            selectedKeys: ['1'],
-            list: [
-                {
+        list: { type: Array, default: () => [{
                     key: '1',
                     title: 'Option 1',
                 },
@@ -71,8 +47,24 @@ export default {
                             children: [{ key: '2.1.1', title: 'Option 2.1.1' }],
                         },
                     ],
-                },
-            ],
+                },] },
+    },
+    //  PieChartOutlined,
+    components: { menuComItem,PieChartOutlined },
+    setup() {
+        //3.0生命周期
+        //
+        // const route = useRoute();
+        // const router = useRouter();
+        // console.log(route);
+        // console.log(router);
+        const state = reactive({
+            num: 1,
+            collapsed: false,
+            selectedKeys: ['1'],
+            // list: [
+                
+            // ],
             // route: route,
         });
         return {

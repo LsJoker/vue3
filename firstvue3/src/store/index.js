@@ -1,4 +1,4 @@
-import Vuex from 'vuex';
+import Vuex from "vuex";
 
 export default Vuex.createStore({
   state: {
@@ -6,9 +6,8 @@ export default Vuex.createStore({
   },
   mutations: {
     setUserInfo(state, info) {
-      state.userInfo = info
+      state.userInfo = info;
     }
-  }, 
-  actions: {
   },
+  actions: {}
 });
