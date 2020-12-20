@@ -1,7 +1,7 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <a-layout id="components-layout-demo-side" style="min-height: 100vh">
-    <menu-com />
+    <menu-com :list="list" />
     <a-layout>
       <!-- <a-layout-header style="background: #fff; padding: 0" /> -->
       <a-layout-content style="margin: 0 16px">
@@ -40,16 +40,17 @@ export default {
       num: 1,
       footerNameObj: { footerNameObj: { footerName: "Joker" } },
       list: [
-        { key: "1", title: "Option 1",url:"/" },
+        { key: "1", title: "vue3.0 Study",url:"/" },
         {
           key: "2",
-          title: "Navigation 2",
-          url:"/vueLife",
+          title: "3.0 生命周期",
+          // url:"/vueLife",
           children: [
             {
               key: "2.1",
-              title: "Navigation 3",
-              children: [{ key: "2.1.1", title: "Option 2.1.1",url:"/vueLife" }]
+              title: "setup",
+              url:"/vueLife",
+              // children: [{ key: "2.1.1", title: "", }]
             }
           ]
         }

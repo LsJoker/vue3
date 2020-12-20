@@ -11,10 +11,12 @@
       >
         <template v-for="item in list" :key="item.key">
           <template v-if="!item.children">
+            <router-link :to="item.url">
             <a-menu-item :key="item.key">
               <PieChartOutlined/>
               <span>{{ item.title }}</span>
             </a-menu-item>
+            </router-link>
           </template>
           <template v-else>
             <menu-com-item :list-item="item"/>
