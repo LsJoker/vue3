@@ -8,24 +8,26 @@
       </pre>
 
       <li>reactive,对于对象的响应式</li>
-      <code>
+      <pre> 
         import { reactive, toRefs } from 'vue';
         const state = reactive({
-        num: 1,
-        collapsed: false,
-        selectedKeys: ['1'],
+          num: 1,
+          collapsed: false,
+          selectedKeys: ['1'],
         });
-      </code>
+        ...toRefs(state)
+      </pre>
 
       <li>toRefs,解构返回普通</li>
-      <code>
+      <pre> 
         import { reactive, toRefs } from 'vue';
         const state = reactive({
-        num: 1,
-        collapsed: false,
-        selectedKeys: ['1'],
+          num: 1,
+          collapsed: false,
+          selectedKeys: ['1'],
         });
-      </code>
+        ...toRefs(state)
+      </pre>
     </ol>
   </div>
 </template>
