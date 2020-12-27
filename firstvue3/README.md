@@ -25,3 +25,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 vueConfig
 https://www.jianshu.com/p/b358a91bdf2d
+Composition API
+https://juejin.cn/post/6844904110198620167#heading-5

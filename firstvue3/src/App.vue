@@ -46,7 +46,7 @@ export default {
                     children: [
                         {
                             key: '2.1',
-                            title: 'setup',
+                            title: 'Composition API',
                             url: '/',
                             // children: [{ key: "2.1.1", title: "", }]
                         },

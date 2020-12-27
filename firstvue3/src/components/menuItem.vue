@@ -11,7 +11,7 @@
         <router-link :to="item.url">
         <a-menu-item :key="item.key">
           <PieChartOutlined/>
-          <span>{{ item.title }}</span>
+          <span @click="propLit">{{ item.title }}</span>
         </a-menu-item>
         </router-link>
       </template>
@@ -40,13 +40,13 @@ export default {
         listItem: { type: Array, default: () => [] },
     },
     components: { PieChartOutlined,MailOutlined },
-    setup() {
+    setup(props) {
         //3.0生命周期
         //
         // const route = useRoute();
         // const router = useRouter();
         // console.log(route);
-        // console.log(router);
+        console.log(props.listItem);
         const state = reactive({
             num: 1,
             collapsed: false,
@@ -70,8 +70,15 @@ export default {
             ],
             // route: route,
         });
+        setInterval(()=>{
+          state.num++;
+        },1000)
+        const propLit = ()=>{
+          console.log(state.num)
+        }
         return {
             ...toRefs(state),
+            propLit
         };
     },
 };
