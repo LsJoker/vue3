@@ -104,7 +104,7 @@
 <script>
 import { reactive, toRefs, readonly } from 'vue';
 export default {
-    name: 'HelloWorld',
+    name: 'lifeCircle',
     // props: {
     //     msg: String,
     // },

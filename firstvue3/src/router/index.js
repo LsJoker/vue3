@@ -1,11 +1,19 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import HelloWorld from '../views/HelloWorld.vue';
-
+import lifeCircle from '../views/lifeCircle.vue';
 const routes = [
 	{
 		path: '/',
 		name: 'HelloWorld',
 		component: HelloWorld,
+		meta: {
+			title: '3.0生命周期',
+		},
+	},
+	{
+		path: '/lifeCircle',
+		name: 'lifeCircle',
+		component: lifeCircle,
 		meta: {
 			title: '3.0生命周期',
 		},

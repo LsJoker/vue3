@@ -50,6 +50,12 @@ export default {
                             url: '/',
                             // children: [{ key: "2.1.1", title: "", }]
                         },
+                        {
+                            key: '2.2',
+                            title: '生命周期',
+                            url: '/lifeCircle',
+                            // children: [{ key: "2.1.1", title: "", }]
+                        },
                     ],
                 },
             ],

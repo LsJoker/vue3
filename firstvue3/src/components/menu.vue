@@ -12,10 +12,10 @@
         <template v-for="item in list" :key="item.key">
           <template v-if="!item.children">
             <router-link :to="item.url">
-            <a-menu-item :key="item.key">
-              <PieChartOutlined/>
-              <span>{{ item.title }}</span>
-            </a-menu-item>
+              <a-menu-item :key="item.key">
+                <PieChartOutlined/>
+                <span>{{ item.title }}</span>
+              </a-menu-item>
             </router-link>
           </template>
           <template v-else>
@@ -31,11 +31,14 @@
 import { reactive, toRefs } from 'vue';
 import menuComItem from './menuItem.vue';
 // import { useRoute, useRouter } from 'vue-router';
-import {PieChartOutlined} from '@ant-design/icons-vue';
+import { PieChartOutlined } from '@ant-design/icons-vue';
 export default {
     name: 'menuCom',
     props: {
-        list: { type: Array, default: () => [{
+        list: {
+            type: Array,
+            default: () => [
+                {
                     key: '1',
                     title: 'Option 1',
                 },
@@ -49,10 +52,12 @@ export default {
                             children: [{ key: '2.1.1', title: 'Option 2.1.1' }],
                         },
                     ],
-                },] },
+                },
+            ],
+        },
     },
     //  PieChartOutlined,
-    components: { menuComItem,PieChartOutlined },
+    components: { menuComItem, PieChartOutlined },
     setup() {
         //3.0生命周期
         //
@@ -63,9 +68,9 @@ export default {
         const state = reactive({
             num: 1,
             collapsed: false,
-            selectedKeys: ['1'],
+            selectedKeys: ['2'],
             // list: [
-                
+
             // ],
             // route: route,
         });
