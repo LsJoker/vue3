@@ -1,5 +1,5 @@
 <template>
-  <a-sub-menu :key="listItem.key" v-bind="$attrs">
+  <a-sub-menu :key="listItem.key">
     <template #title>
       <span>
         <MailOutlined/>
@@ -8,12 +8,18 @@
     </template>
     <template v-for="item in listItem.children" :key="item.key">
       <template v-if="!item.children">
-        <router-link :to="item.url">
-        <a-menu-item :key="item.key">
+             <!-- <router-link :to="item.url"> -->
+        
+        <a-menu-item :key="item.key" @click="toPath(item.url)">
           <PieChartOutlined/>
-          <span @click="propLit">{{ item.title }}</span>
+   
+
+          <span @click="propLit">{{ item.title }}
+
+          </span>
+
         </a-menu-item>
-        </router-link>
+        <!-- </router-link> -->
       </template>
       <template v-else>
         <menu-com-item :list-item="item" :key="item.key"/>
@@ -24,7 +30,7 @@
 
 <script>
 import { reactive, toRefs } from 'vue';
-// import { useRoute, useRouter } from 'vue-router';
+import {  useRouter } from 'vue-router';
 import {
     // MenuFoldOutlined,
     // MenuUnfoldOutlined,
@@ -44,13 +50,13 @@ export default {
         //3.0生命周期
         //
         // const route = useRoute();
-        // const router = useRouter();
+        const router = useRouter();
         // console.log(route);
         console.log(props.listItem);
         const state = reactive({
             num: 1,
             collapsed: false,
-            selectedKeys: ['1'],
+            // selectedKeys: ['2'],
             list: [
                 {
                     key: '1',
@@ -76,9 +82,13 @@ export default {
         const propLit = ()=>{
           console.log(state.num)
         }
+        const toPath = (url)=>{
+          router.push(url)
+        }
         return {
             ...toRefs(state),
-            propLit
+            propLit,
+            toPath
         };
     },
 };
