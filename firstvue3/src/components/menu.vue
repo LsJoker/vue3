@@ -1,7 +1,9 @@
 <template>
   <a-layout-sider v-model:collapsed="collapsed" collapsible>
     <div class="logo"/>
-    <a-menu theme="dark" v-model:selectedKeys="selectedKeys" 
+    <a-menu theme="dark" 
+    v-model:selectedKeys="selectedKeys" 
+    v-model:openKeys="openKeys"
     mode="inline">
         <template v-for="item in list" :key="item.key">
           <template v-if="!item.children">
@@ -63,30 +65,31 @@ export default {
             num: 1,
             // collapsed: false,
             selectedKeys: ['1'],
+            openKeys: ['2'],
             // list: [
 
             // ],
             // route: route,
         });
 
-        const matchUrl = (urlList,url)=>{
-          let arr = []
+        const matchUrl = function(urlList,url){
           for (let i=0;i<urlList.length;i++) {
-            if (urlList[i].children) {
-              matchUrl(urlList[i].children,url)
+            if (urlList[i].url && urlList[i].url === url) {
+              return [urlList[i].key,urlList[i].key.split('.')[0]]
             }
-            if (urlList[i].url === url) {
-              arr = [urlList[i].key,urlList[i].key.split('.')[0]]
+            if (urlList[i].children) {
+              return matchUrl(urlList[i].children,url)
             }
           }
-          return arr
+          
         }
 
         watch(()=>route.path, (newValue ) => {
           let selected=[];
           selected = matchUrl(props.list,newValue);
           console.log(selected)
-          // state.selectedKeys = [selected[0]];
+          state.selectedKeys = [selected[0]];
+          state.openKeys = [selected[1]];
         })
 
         const toPath = (url)=>{

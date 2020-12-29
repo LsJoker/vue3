@@ -6,7 +6,7 @@
         <span>{{ listItem.title }}</span>
       </span>
     </template>
-    <template v-for="item in listItem.children" :key="item.key">
+    <template v-for="item in listItem.children" >
       <template v-if="!item.children">
              <!-- <router-link :to="item.url"> -->
         
@@ -57,23 +57,7 @@ export default {
             num: 1,
             collapsed: false,
             // selectedKeys: ['2'],
-            list: [
-                {
-                    key: '1',
-                    title: 'Option 1',
-                },
-                {
-                    key: '2',
-                    title: 'Navigation 2',
-                    children: [
-                        {
-                            key: '2.1',
-                            title: 'Navigation 3',
-                            children: [{ key: '2.1.1', title: 'Option 2.1.1' }],
-                        },
-                    ],
-                },
-            ],
+            
             // route: route,
         });
         setInterval(()=>{
