@@ -5,7 +5,7 @@
     v-model:selectedKeys="selectedKeys" 
     v-model:openKeys="openKeys"
     mode="inline">
-        <template v-for="item in list" :key="item.key">
+        <template v-for="item in list" >
           <template v-if="!item.children">
             <!-- <router-link :to="item.url"> -->
               <a-menu-item :key="item.key" @click="toPath(item.url)">
@@ -15,7 +15,7 @@
             <!-- </router-link> -->
           </template>
           <template v-else>
-            <menu-com-item :list-item="item"/>
+            <menu-com-item :key="item.key" :list-item="item"/>
           </template>
         </template>
       </a-menu>
