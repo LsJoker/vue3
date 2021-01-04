@@ -1,103 +1,24 @@
 <template>
   <div class="hello">
-    <ol>
-      <li>ref,普通响应式，对单纯的值，ref定义的变量，改变值要.value</li>
-      <pre> 
-        import {ref} from 'vue';
-        const msg3 = ref('你好不好')
-      </pre>
+    <ul>
+        <li>
+            vue2.x生命周期回顾
+            <ol>
+                <li><code>beforeCreate</code>，在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</li>
+                <li><code>created</code>，在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前尚不可用。</li>
+                <li><code>beforeMount</code>，在挂载开始之前被调用：相关的 render 函数首次被调用。</li>
+                <li><code>mounted</code>，实例被挂载后调用，这时 <code>el</code> 被新创建的 <code>vm.$el</code> 替换了。 如果根实例挂载到了一个文档内的元素上，当mounted被调用时 <code>vm.$el</code> 也在文档内。</li>
+                <li><code>beforeUpdate</code>，数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。</li>           
+                <li><code>updated</code>，由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</li>           
+                <li><code>activated</code>，被 keep-alive 缓存的组件激活时调用。</li>           
+                <li><code>deactivated</code>，被 keep-alive 缓存的组件停用时调用。</li>           
+                <li><code>beforeDestroy</code>，实例销毁之前调用。在这一步，实例仍然完全可用。</li>           
+                <li><code>destroyed</code>，实例销毁后调用。该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。</li>           
+                <li><code>errorCaptured</code>，当捕获一个来自子孙组件的错误时被调用。</li>           
+            </ol>
 
-      <li>reactive,对于对象的响应式</li>
-      <pre> 
-        import { reactive, toRefs } from 'vue';
-        const state = reactive({
-          num: 1,
-          collapsed: false,
-          selectedKeys: ['1'],
-        });
-        ...toRefs(state)
-      </pre>
-
-      <li>toRefs,解构返回普通响应式</li>
-      <pre> 
-        import { reactive, toRefs } from 'vue';
-        const state = reactive({
-          num: 1,
-          collapsed: false,
-          selectedKeys: ['1'],
-        });
-        ...toRefs(state)
-      </pre>
-      <li>setup传参：3.0取消了this，setup加入参数prop以及context,prop主要取组件外部传参，context是执行上下文，vue2.0中的this，但由于3.0的变量都在setup中，所以执行时基本不会用到以this去取变量</li>
-      <pre>         
-        setup(prop,context) {
-          console.log(props.listItem);
-        }
-      </pre>
-
-      <li>定义method在setup的return中返回，再在模板绑定函数</li>
-      <pre>         
-        setup(prop,context) {
-          const state = reactive({
-            num: 1,
-            collapsed: false,
-            selectedKeys: ['1'],
-            list: [
-                {
-                    key: '1',
-                    title: 'Option 1',
-                },
-                {
-                    key: '2',
-                    title: 'Navigation 2',
-                    children: [
-                        {
-                            key: '2.1',
-                            title: 'Navigation 3',
-                            children: [{ key: '2.1.1', title: 'Option 2.1.1' }],
-                        },
-                    ],
-                },
-            ],
-            // route: route,
-          });
-          setInterval(()=>{
-            state.num++;
-          },1000)
-          const propLit = ()=>{
-            console.log(state.num)
-          }
-          return {
-              ...toRefs(state),
-              propLit
-          };
-        }
-      </pre>
-
-      <li>readonly，普通 object 对象、reactive 对象、ref 对象 返回一个只读对象</li>
-      <pre>
-        import { reactive, toRefs,readonly } from 'vue';         
-        setup(prop,context) {
-          const state = reactive({
-            num: 1,
-            num2:2,
-            collapsed: false,
-            selectedKeys: ['1'],
-          });
-          const a = readonly(state);
-          setTimeout(()=>{
-            state.num++;
-            state.num2++;
-          },1000)
-          readonly(a)
-          console.log(a.num)
-          console.log(a.num2)
-          return {
-              ...toRefs(state),
-          };
-        }
-      </pre>
-    </ol>
+        </li>
+    </ul>
   </div>
 </template>
 
@@ -136,4 +57,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 /* @import url('common/css/reset.css');  */
+code{
+    background: #000;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
 </style>
