@@ -3,13 +3,12 @@
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const webpack = require('webpack');
 
-const version = 'feature-2457';
+const version = '';
 // 环境
 const envFlag = process.env.VUE_APP_ENV === 'production' ? 1 : 0;
 // 打包资源所在地址
-// baseUrl: '//rs.517na.com/pc-cLCorpSettlementWeb/dist',
-const baseUrl =
-	envFlag === 1 ? '//cdn.517la.net/configStatic/' + version + '/dist' : './';
+// baseUrl: 't',
+const baseUrl = envFlag === 1 ? '' + version + '/dist' : './';
 module.exports = {
 	publicPath: baseUrl, // 正式
 	// baseUrl: './dist', // 编译打包（内网或测试）
@@ -21,7 +20,7 @@ module.exports = {
 	devServer: {
 		// proxy: {
 		//   '/restful': {
-		//     target: 'https://restful.517la.com/', // 请求域名
+		//     target: '/', // 请求域名
 		//     secure: false, // 如果是https接口，需要配置这个参数
 		//     changeOrigin: true, // 如果是跨域访问，需要配置这个参数
 		//     pathRewrite: {
@@ -29,7 +28,7 @@ module.exports = {
 		//     }
 		//   },
 		//   '/jcgateway': {
-		//     target: 'https://jcgateway.517la.com/h5/CLUNIVERSALPERMISSIONSERVICE/clpubapi/', // 请求域名
+		//     target: '', // 请求域名
 		//     secure: false, // 如果是https接口，需要配置这个参数
 		//     changeOrigin: true, // 如果是跨域访问，需要配置这个参数
 		//     pathRewrite: {
